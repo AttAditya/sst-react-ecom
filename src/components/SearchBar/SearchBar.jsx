@@ -21,6 +21,10 @@ function SearchBar() {
 
     return (
         <div className="search-bar">
+            <h1>
+                Search Bar
+            </h1>
+
             <input onInput={constantInput3} value={inputVal} />
             <div className="test-output">
                 Output: {inputVal}

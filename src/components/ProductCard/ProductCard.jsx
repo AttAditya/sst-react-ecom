@@ -1,42 +1,30 @@
+import AddToCart from "../AddToCart/AddToCart";
 import "./ProductCard.css";
-import { useRef } from "react";
 
-function ProductCard({ title, price }) {
-    let priceRef = useRef();
-
-    function togglePrice() {
-        let currentState = priceRef.current.style.display === "none";
-        priceRef.current.style.display = currentState ? "block" : "none";
-    }
-
+function ProductCard({ productData, incrementProductQty, decrementProductQty}) {
     return (
         <div className="product-card">
-            <h2 onClick={togglePrice}>
-                {title}
-            </h2>
-            <p ref={priceRef} style={{ display: "none" }}>
-                {price.currency} {price.value}
+            <div className="product-details">
+                <h2>
+                    {productData.title}
+                </h2>
+
+                <div className="product-image">
+                    <img src={productData.images[0]} alt={productData.title} />
+                </div>
+            </div>
+
+            <p>
+                {productData.price.currency} {productData.price.value}
             </p>
+
+            <AddToCart
+                product={productData}
+                incrementProductQty={incrementProductQty}
+                decrementProductQty={decrementProductQty}
+            />
         </div>
     );
 }
 
 export default ProductCard;
-
-/* 
-    cart = {
-        "id1": {
-            id: "...",
-            qty: "..."
-        },
-        "id2": {
-            id: "...",
-            qty: "..."
-        },
-        "id3": {
-            id: "...",
-            qty: "..."
-        },
-        ...
-    }
- */

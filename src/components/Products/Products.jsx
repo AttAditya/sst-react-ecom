@@ -1,40 +1,8 @@
+import "./Products.css";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../ProductCard";
 
-// const products = [
-//     {
-//         id: 1,
-//         title: "Apple iPhone 14",
-//         price: "Rs. 1,00,000"
-//     },
-//     {
-//         id: 2,
-//         title: "Apple iPhone 13",
-//         price: "Rs. 70,000"
-//     },
-//     {
-//         id: 3,
-//         title: "Google Pixel 7",
-//         price: "Rs. 50,000"
-//     },
-//     {
-//         id: 4,
-//         title: "Nokia 1100",
-//         price: "Rs. 2,000"
-//     },
-//     {
-//         id: 5,
-//         title: "Samsung Galaxy S10",
-//         price: "Rs. 1,00,000"
-//     },
-//     {
-//         id: 6,
-//         title: "Sony Xperia S10",
-//         price: "Rs. 1,00,000"
-//     }
-// ];
-
-function Products() {
+function Products({ incrementProductQty, decrementProductQty }) {
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -50,13 +18,19 @@ function Products() {
                 Products
             </h1>
 
-            <div className="container">
+            <ul className="products-list">
                 {
-                    products.map((product, index) => {
-                        return <ProductCard title={product.title} price={product.price} key={index} />
-                    })
+                    products.map((product, index) => (
+                        <li key={index}>
+                            <ProductCard
+                                productData={product}
+                                incrementProductQty={incrementProductQty}
+                                decrementProductQty={decrementProductQty}
+                            />
+                        </li>
+                    ))
                 }
-            </div>
+            </ul>
         </div>
     )
 }
