@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import logo from './assets/logo.svg'
 import './App.css';
 
+import {
+    WindowDetail,
+    Effect,
+    SearchBar,
+    Products
+} from "./components";
+
+import { useState } from 'react';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [qty, setQty] = useState(0);
+
+    function increment() {
+        setQty(qty + 1);
+    }
+
+    function decrement() {
+        setQty(qty - 1);
+    }
+    
+    return (
+        <div className="App">
+            <img src={logo} className="App-logo" alt="logo" />
+            <WindowDetail />
+            <Effect />
+            <SearchBar />
+            <Products />
+        </div>
+    );
 }
 
 export default App;
