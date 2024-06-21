@@ -2,7 +2,7 @@ import "./Products.css";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../ProductCard";
 
-function Products({ incrementProductQty, decrementProductQty }) {
+function Products() {
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -24,8 +24,6 @@ function Products({ incrementProductQty, decrementProductQty }) {
                         <li key={index}>
                             <ProductCard
                                 productData={product}
-                                incrementProductQty={incrementProductQty}
-                                decrementProductQty={decrementProductQty}
                             />
                         </li>
                     ))
