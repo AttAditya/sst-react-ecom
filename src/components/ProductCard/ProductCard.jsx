@@ -1,7 +1,7 @@
 import AddToCart from "../AddToCart/AddToCart";
 import "./ProductCard.css";
 
-function ProductCard({ productData, incrementProductQty, decrementProductQty}) {
+function ProductCard({ productData }) {
     return (
         <div className="product-card">
             <div className="product-details">
@@ -20,8 +20,6 @@ function ProductCard({ productData, incrementProductQty, decrementProductQty}) {
 
             <AddToCart
                 product={productData}
-                incrementProductQty={incrementProductQty}
-                decrementProductQty={decrementProductQty}
             />
         </div>
     );

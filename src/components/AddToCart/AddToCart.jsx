@@ -1,13 +1,27 @@
 import "./AddToCart.css";
 
-function AddToCart({ product, incrementProductQty, decrementProductQty }) {
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+
+function AddToCart({ product }) {
+    let { incrementProductQty } = useContext(CartContext);
+    let { decrementProductQty } = useContext(CartContext);
+
+    function increase() {
+        incrementProductQty(product);
+    }
+
+    function decrease() {
+        decrementProductQty(product);
+    }
+
     return (
         <div className="product-controls">
-            <button onClick={() => incrementProductQty(product)}>
+            <button onClick={increase}>
                 +
             </button>
 
-            <button onClick={() => decrementProductQty(product)}>
+            <button onClick={decrease}>
                 -
             </button>
         </div>

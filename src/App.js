@@ -10,6 +10,7 @@ import {
 
 import { useState } from 'react';
 import { Cart } from './components/Cart';
+import { CartContext } from './context/CartContext';
 
 function App() {
     let [cartData, setCartData] = useState({});
@@ -74,10 +75,10 @@ function App() {
             <Cart cartData={cartData} />
             
             <SearchBar />
-            <Products
-                incrementProductQty={incrementProductQty}
-                decrementProductQty={decrementProductQty}
-            />
+
+            <CartContext.Provider value={{ cartData, addProductToCart, removeProductFromCart, incrementProductQty, decrementProductQty }}>
+                <Products />
+            </CartContext.Provider>
         </div>
     );
 }
