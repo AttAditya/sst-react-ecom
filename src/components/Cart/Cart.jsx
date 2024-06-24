@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import "./Cart.css";
 
-function Cart({ cartData }) {
+function Cart() {
+    let cartData = useSelector(state => state.cart);
+    console.log(cartData);
+
     return (
         <div>
             <h1>Cart</h1>

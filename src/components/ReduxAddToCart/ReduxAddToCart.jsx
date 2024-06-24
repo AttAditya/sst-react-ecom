@@ -1,30 +1,41 @@
-import "./AddToCart.css";
+import "./ReduxAddToCart.css";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "../../context/CartContext";
-import { useContext } from "react";
-
-function AddToCart({ product }) {
-    let { incrementProductQty, decrementProductQty } = useContext(CartContext);
+function ReduxAddToCart({ product }) {
+    let cart = useSelector(state => state.cart);
+    let dispatch = useDispatch();
 
     function increase() {
-        incrementProductQty(product);
+        dispatch({
+            type: "ADD_TO_CART",
+            payload: product
+        });
     }
 
     function decrease() {
-        decrementProductQty(product);
+        dispatch({
+            type: "REMOVE_FROM_CART",
+            payload: product
+        });
     }
 
     return (
-        <div className="product-controls">
-            <button onClick={increase}>
-                +
-            </button>
+        <div className="add-to-cart">
+            <div className="product-controls">
+                <button onClick={decrease}>
+                    -
+                </button>
 
-            <button onClick={decrease}>
-                -
-            </button>
+                <span>
+                    {cart[product.id] ? cart[product.id].qty : 0}
+                </span>
+
+                <button onClick={increase}>
+                    +
+                </button>
+            </div>
         </div>
     );
 }
 
-export default AddToCart;
+export default ReduxAddToCart;

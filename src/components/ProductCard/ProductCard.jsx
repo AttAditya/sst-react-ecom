@@ -1,4 +1,4 @@
-import AddToCart from "../AddToCart/AddToCart";
+import ReduxAddToCart from "../ReduxAddToCart/ReduxAddToCart";
 import "./ProductCard.css";
 
 function ProductCard({ productData }) {
@@ -18,7 +18,7 @@ function ProductCard({ productData }) {
                 {productData.price.currency} {productData.price.value}
             </p>
 
-            <AddToCart
+            <ReduxAddToCart
                 product={productData}
             />
         </div>
