@@ -3,7 +3,6 @@ import "./Cart.css";
 
 function Cart() {
     let cartData = useSelector(state => state.cart);
-    console.log(cartData);
 
     return (
         <div>

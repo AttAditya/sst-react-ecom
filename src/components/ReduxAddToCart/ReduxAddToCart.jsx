@@ -1,8 +1,9 @@
 import "./ReduxAddToCart.css";
 import { useDispatch, useSelector } from "react-redux";
+import { BsCartDash, BsCartPlus } from "react-icons/bs";
 
 function ReduxAddToCart({ product }) {
-    let cart = useSelector(state => state.cart);
+    let prodQty = useSelector(state => state.cart[product.id]?.qty ?? 0);
     let dispatch = useDispatch();
 
     function increase() {
@@ -21,19 +22,28 @@ function ReduxAddToCart({ product }) {
 
     return (
         <div className="add-to-cart">
-            <div className="product-controls">
-                <button onClick={decrease}>
-                    -
-                </button>
+            {prodQty ? (
+                <div className="product-controls">
+                    <button onClick={decrease} className="control-button">
+                        <BsCartDash />
+                    </button>
 
-                <span>
-                    {cart[product.id] ? cart[product.id].qty : 0}
-                </span>
+                    <span>
+                        {prodQty}
+                    </span>
 
-                <button onClick={increase}>
-                    +
-                </button>
-            </div>
+                    <button onClick={increase} className="control-button">
+                        <BsCartPlus />
+                    </button>
+                </div>
+            ) : (
+                <div className="product-controls">
+                    <button onClick={increase}>
+                        <BsCartPlus />
+                        Add to Cart
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
