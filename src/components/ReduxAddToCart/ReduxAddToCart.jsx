@@ -1,23 +1,18 @@
 import "./ReduxAddToCart.css";
 import { useDispatch, useSelector } from "react-redux";
 import { BsCartDash, BsCartPlus } from "react-icons/bs";
+import { addToCart, removeFromCart } from "../../store";
 
 function ReduxAddToCart({ product }) {
     let prodQty = useSelector(state => state.cart[product.id]?.qty ?? 0);
     let dispatch = useDispatch();
 
     function increase() {
-        dispatch({
-            type: "ADD_TO_CART",
-            payload: product
-        });
+        dispatch(addToCart(product));
     }
 
     function decrease() {
-        dispatch({
-            type: "REMOVE_FROM_CART",
-            payload: product
-        });
+        dispatch(removeFromCart(product));
     }
 
     return (
