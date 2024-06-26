@@ -6,7 +6,8 @@ function Products() {
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
-        let URL = "https://602fc537a1e9d20017af105e.mockapi.io/api/v1/products";
+        let URL = "https://run.mocky.io/v3/7fd3c225-0e41-4ba3-bc2d-a9f00f4ab1b8";
+
         fetch(URL).then((response) => response.json()).then((data) => {
             setProducts(data);
         });

@@ -4,7 +4,8 @@ import './App.css';
 import {
     SearchBar,
     Products,
-    Cart
+    Cart,
+    Categories
 } from "./components";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
             <Cart />
             
             <SearchBar />
+            <Categories />
+
             <Products />
         </div>
     );

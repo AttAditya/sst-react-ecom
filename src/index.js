@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './store';
+import { cartReducer } from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
+  <Provider store={cartReducer}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
