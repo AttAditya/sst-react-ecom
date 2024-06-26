@@ -1,18 +1,20 @@
 import { useSelector } from "react-redux";
 import "./Cart.css";
+import { ProductCard } from "../ProductCard";
 
 function Cart() {
     let cartData = useSelector(state => state.cart);
 
     return (
-        <div>
+        <div className="cart">
             <h1>Cart</h1>
 
             <ul className="cart-list">
                 {
                     Object.values(cartData).map(product => (
                         <li key={product.id} className="cart-item">
-                            <p>
+                            <ProductCard productData={product} />
+                            {/* <p>
                                 Name: {product.title}
                             </p>
 
@@ -22,7 +24,7 @@ function Cart() {
 
                             <p>
                                 Quantity: {product.qty}
-                            </p>
+                            </p> */}
                         </li>
                     ))
                 }
