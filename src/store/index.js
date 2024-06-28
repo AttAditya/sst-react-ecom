@@ -4,5 +4,6 @@ export {
     removeFromCart,
     addCategory,
     removeCategory,
-    clearCategories
+    clearCategories,
+    loadCategories
 } from "./actioncreators";
