@@ -9,6 +9,33 @@ function Categories() {
 
         fetch(URL).then((response) => response.json()).then((data) => {
             setCategories(data);
+        }).catch((err) => {
+            setCategories([
+                {
+                    "id": 0,
+                    "name": "Health & Personal Care"
+                },
+                {
+                    "id": 1,
+                    "name": "Home & Kitchen"
+                },
+                {
+                    "id": 2,
+                    "name": "Apparel"
+                },
+                {
+                    "id": 3,
+                    "name": "Home & Office"
+                },
+                {
+                    "id": 4,
+                    "name": "Electronics"
+                },
+                {
+                    "id": 5,
+                    "name": "Sports & Outdoors"
+                }
+            ]);
         });
     }, []);
 

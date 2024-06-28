@@ -5,7 +5,7 @@ import { BsCartDash, BsCartPlus } from "react-icons/bs";
 import { addToCart, removeFromCart } from "../../store";
 
 function ReduxAddToCart({ product }) {
-    let prodQty = useSelector(state => state.cart[product.id]?.qty ?? 0);
+    let prodQty = useSelector(state => state.cart.cart[product.id]?.qty ?? 0);
     let dispatch = useDispatch();
 
     function increase() {

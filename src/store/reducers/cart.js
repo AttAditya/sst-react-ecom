@@ -1,4 +1,3 @@
-import { createStore } from "redux";
 import { CART_ACTIONS } from "../types";
 
 function cartReducer(state={ cart: {} }, action) {
@@ -66,7 +65,5 @@ function cartReducer(state={ cart: {} }, action) {
     }
 }
 
-const store = createStore(cartReducer);
-
-export default store;
+export { cartReducer };
 
